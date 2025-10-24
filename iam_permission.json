@@ -9,6 +9,7 @@
         "iam:PassRole",
         "iam:GetRole",
         "iam:ListRoles",
+        "iam:CreateServiceLinkedRole",
         "cloudwatch:*",
         "logs:*"
       ],

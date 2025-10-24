@@ -51,11 +51,23 @@ resource "aws_lb_target_group" "web_tg" {
     matcher             = "200-399"
     interval            = 30
     timeout             = 5
-    healthy_threshold   = 3
+    healthy_threshold   = 2
     unhealthy_threshold = 2
   }
 
   tags = { Name = "web-tg" }
+}
+
+# Listener for ALB
+resource "aws_lb_listener" "web_listener" {
+  load_balancer_arn = aws_lb.web_alb.arn
+  port              = 80
+  protocol          = "HTTP"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.web_tg.arn
+  }
 }
 
 # Register private EC2 with target group
@@ -69,16 +81,4 @@ resource "aws_lb_target_group_attachment" "web_ec2_attachment2" {
   target_group_arn = aws_lb_target_group.web_tg.arn
   target_id        = aws_instance.private_ec2_2.id
   port             = 80
-}
-
-# Listener for ALB
-resource "aws_lb_listener" "web_listener" {
-  load_balancer_arn = aws_lb.web_alb.arn
-  port              = 80
-  protocol          = "HTTP"
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.web_tg.arn
-  }
 }

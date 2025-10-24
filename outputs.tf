@@ -1,3 +1,8 @@
+output "bastion_host_public_ip" {
+  description = "Public IP of bastion host"
+  value = aws_instance.bastion_host.public_ip
+}
+
 output "ssh_user" {
   value = "ubuntu" # Ubuntu AMI default user
 }

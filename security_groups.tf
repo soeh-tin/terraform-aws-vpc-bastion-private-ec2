@@ -36,20 +36,20 @@ resource "aws_security_group" "app_sg" {
     security_groups = [aws_security_group.bastion_host_sg.id]
   }
 
-  #ingress {
-  #  description = "Allow ICMP ping within VPC"
-  #  from_port   = -1
-  #  to_port     = -1
-  #  protocol    = "icmp"
-  #  cidr_blocks = [var.vpc_cidr]
-  #}
+  ingress {
+    description = "HTTP from bastion"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    security_groups = [aws_security_group.bastion_host_sg.id]
+  }
 
   ingress {
     description = "HTTP access to Web Server"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    security_groups = [aws_security_group.alb_sg.id]
   }
 
   egress {

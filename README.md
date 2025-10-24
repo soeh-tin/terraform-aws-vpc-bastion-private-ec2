@@ -22,6 +22,7 @@ This repository contains Terraform configurations to deploy a **secure AWS with 
 - [Terraform](https://youtu.be/12p3s0gtN_U) installed
 - [AWS CLI](https://youtu.be/A1wZ3DeKX8g) installed
 - [TeraTerm](https://youtu.be/CyiuLCB2SBU) installed
+- WinSCP installed
 - AWS CLI configured with IAM credentials
 - An AWS account
 

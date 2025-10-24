@@ -16,13 +16,13 @@ resource "local_file" "local_tls_key" {
   file_permission = "0600"
 }
 
-# Find latest Ubuntu Noble 24.04 AMI
+# Find latest Ubuntu 24.04 LTS AMI
 data "aws_ami" "ubuntu" {
   most_recent = true
-  owners      = ["099720109477"] # Canonical
+  owners      = ["099720109477"] # Amazon
 
   filter {
     name   = "name"
-    values = ["ubuntu-minimal/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-minimal-20250625"]
+    values  = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20250821"]
   }
 }

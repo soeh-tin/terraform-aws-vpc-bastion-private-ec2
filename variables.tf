@@ -37,13 +37,13 @@ variable "private_subnet_cidr_2" {
 variable "instance_type_bastion" {
   description = "Instance type for bastion"
   type        = string
-  default     = "t2.micro"
+  default     = "t3.micro"
 }
 
 variable "instance_type_app" {
   description = "Instance type for private app"
   type        = string
-  default     = "t2.micro"
+  default     = "t3.micro"
 }
 
 variable "my_ip_cidr" {
