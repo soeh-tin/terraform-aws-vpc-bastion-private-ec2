@@ -27,9 +27,10 @@ This repository contains Terraform configurations to deploy a **secure AWS with 
 - An AWS account
 
 ## Usage
-```bash
+```
 git clone https://github.com/soeh-tin/terraform-aws-vpc-bastion-private-ec2.git
 cd terraform-aws-vpc-bastion-private-ec2
+```
 
 ## 🚀 Deployment Steps
 
